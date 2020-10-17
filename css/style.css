@@ -344,9 +344,13 @@
      text-align: center;
 }
 /*--------------------------------------------------------------------- header area ---------------------------------------------------------------------*/
+ 
  .header {
      background: #ffe8f9;
-     padding: 10px 0px;}
+     padding: 10px 0px;
+
+
+}
  .logo {
      float: left;
      font-size: 2rem;
@@ -355,6 +359,7 @@
  nav.main-menu {
      float: right;
      margin-left: 0;
+     
 }
  .menu-area-main li:hover a, .menu-area-main li:focus a {
      color: #BC0343;
@@ -1349,6 +1354,9 @@
      line-height: 80px;
      color: #f24c3d;
      font-weight: bold;
+     padding-left: 20px;
+     padding-top: 30px;
+     
 }
  .cur {
     color: #ad2100;
@@ -1360,12 +1368,15 @@
      background-color: rgba(0,0,0,0.5);
      padding-bottom: 25px;
      display: inline-block;
+     padding-right: 20px;
+     padding-left: 20px;
 }
  .banner-main .carousel-caption p {
-    font-size: 17px;
+    font-size: 20px;
      line-height: 30px;
      color: #f2cfbb;
-     
+     padding-left: 20px;
+     padding-top: 30px;
 }
  .carousel-indicators .active {
     background-color: #BC0343;
@@ -1631,9 +1642,8 @@
      text-transform: uppercase;
      text-align: center;
      border: #260f26 solid 2px;
-     width: 676px;
+
      margin: 0 auto;
      padding: 25px 0;
      font-weight: bold;
-}
- 
+} 
