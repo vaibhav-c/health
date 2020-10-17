@@ -50,7 +50,7 @@ function classifyPose() {
 
 function gotResult(error, results) {
   
-  if (results[0].confidence > 0.75) {
+  if (results[0].confidence > 0.5) {
     poseLabel = results[0].label.toUpperCase();
   } else {
       poseLabel = 'N';
@@ -82,7 +82,7 @@ function draw() {
   image(video, factor, 0, windowWidth, windowHeight);
   mul = windowWidth/640; 
   if (pose) {
-    for (let i = 0; i < skeleton.length; i++) {
+    /*for (let i = 0; i < skeleton.length; i++) {
       let a = skeleton[i][0];
       let b = skeleton[i][1];
       strokeWeight(2);
@@ -96,17 +96,23 @@ function draw() {
       fill(0);
       stroke(255);
       ellipse(x, y, 16, 16);
-    }
+    }*/
   }
   pop();             
   fill(255, 0, 255);
   noStroke();
   textSize(128);
   textAlign(CENTER, CENTER);                if(poseLabel == 'A') {
-        text('Good', width / 2, height / 2);
-    } else if(poseLabel == 'B') {                  
-        text('Bad', width / 2, height / 2);
+        fill(0, 255, 0);
+        text('A', width / 2, height / 2);
+    } else if(poseLabel == 'B') {
+        fill(0, 0, 0);
+        text('B', width / 2, height / 2);
+    } else if(poseLabel == 'C') {
+        fill(255, 0, 0);
+        text('C', width / 2, height / 2);
     } else {
+        fill(0, 255, 255);
         text('You\n can do\n better', width / 2, height / 2);
     }
 }
