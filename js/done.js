@@ -21,9 +21,9 @@ function setup() {
   }
   brain = ml5.neuralNetwork(options);
   const modelInfo = {
-    model: 'models/model.json',
-    metadata: 'models/model_meta.json',
-    weights: 'models/model.weights.bin',
+    model: '../models/model.json',
+    metadata: '../models/model_meta.json',
+    weights: '../models/model.weights.bin',
   };
   brain.load(modelInfo, brainLoaded);
 }
