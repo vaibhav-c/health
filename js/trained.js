@@ -12,7 +12,7 @@ function setup() {
         debug:true
     }
     brain = ml5.neuralNetwork(options);
-    brain.loadData('../health/models/abcd.json', dataReady);
+    brain.loadData('exercises.json', dataReady);
 
 }
 function dataReady() {

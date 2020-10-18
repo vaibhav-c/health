@@ -22,9 +22,9 @@ function setup() {
   }
   brain = ml5.neuralNetwork(options);
   const modelInfo = {
-    model: 'model.json',
-    metadata: 'model_meta.json',
-    weights: 'model.weights.bin',
+    model: 'modelLap.json',
+    metadata: 'model_metaLap.json',
+    weights: 'model.weightsLap.bin',
   };
   brain.load(modelInfo, brainLoaded);
 }
@@ -51,7 +51,7 @@ function classifyPose() {
 
 function gotResult(error, results) {
   
-  if (results[0].confidence > 0.75) {
+  if (results[0].confidence > 0.40) {
     poseLabel = results[0].label.toUpperCase();
   } else {
       poseLabel = 'N';
@@ -82,38 +82,18 @@ function draw() {
   mulFacHeight = windowHeight/480;
   image(video, factor, 0, windowWidth, windowHeight);
   mul = windowWidth/640; 
-  if (pose) {
-    /*for (let i = 0; i < skeleton.length; i++) {
-      let a = skeleton[i][0];
-      let b = skeleton[i][1];
-      strokeWeight(2);
-      stroke(0);
-
-      line(a.position.x * mul + factor, a.position.y * mulFacHeight,b.position.x * mul + factor,b.position.y * mulFacHeight);
-    }
-    for (let i = 0; i < pose.keypoints.length; i++) {
-      let x = pose.keypoints[i].position.x * mul + factor;
-      let y = pose.keypoints[i].position.y * mulFacHeight;
-      fill(0);
-      stroke(255);
-      ellipse(x, y, 16, 16);
-    }*/
-  }
   pop();             
   fill(255, 0, 255);
   noStroke();
   textSize(128);
-  textAlign(CENTER, CENTER);                if(poseLabel == 'A') {
+  textAlign(CENTER, CENTER);                
+    if(poseLabel == 'A') {
         fill(0, 255, 0);
-        text('A', width / 2, height / 2);
-    } else if(poseLabel == 'B') {
-        fill(0, 0, 0);
-        text('B', width / 2, height / 2);
-    } else if(poseLabel == 'C') {
-        fill(255, 0, 0);
-        text('C', width / 2, height / 2);
+        text('GOOD WORK', width / 2, height / 2);
+    } else if(poseLabel == 'N') {
+        fill(255, 255, 0);
+        text('YOU\n CAN DO\n BETTER', width / 2, height / 2);
     } else {
-        fill(0, 255, 255);
-        text('You\n can do\n better', width / 2, height / 2);
+        text('', width / 2, height / 2);
     }
 }

@@ -51,7 +51,7 @@ function classifyPose() {
 
 function gotResult(error, results) {
   
-  if (results[0].confidence > 0.75) {
+  if (results[0].confidence > 0.40) {
     poseLabel = results[0].label.toUpperCase();
   } else {
       poseLabel = 'N';
@@ -103,17 +103,20 @@ function draw() {
   fill(255, 0, 255);
   noStroke();
   textSize(128);
-  textAlign(CENTER, CENTER);                if(poseLabel == 'A') {
+  textAlign(CENTER, CENTER);                
+    if(poseLabel == 'A') {
         fill(0, 255, 0);
-        text('A', width / 2, height / 2);
+        text('GOOD WORK', width / 2, height / 2);
     } else if(poseLabel == 'B') {
-        fill(0, 0, 0);
-        text('B', width / 2, height / 2);
+        fill(0, 255, 0);
+        text('GOOD WORK', width / 2, height / 2);
     } else if(poseLabel == 'C') {
-        fill(255, 0, 0);
-        text('C', width / 2, height / 2);
+        fill(0, 255, 0);
+        text('GOOD WORK', width / 2, height / 2);
+    } else if(poseLabel == 'N') {
+        fill(255, 255, 0);
+        text('YOU\n CAN DO\n BETTER', width / 2, height / 2);
     } else {
-        fill(0, 255, 255);
-        text('You\n can do\n better', width / 2, height / 2);
+        text('', width / 2, height / 2);
     }
 }
